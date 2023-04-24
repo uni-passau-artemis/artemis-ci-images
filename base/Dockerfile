@@ -4,7 +4,7 @@ LABEL maintainer1="Benedikt Fein <fein@fim.uni-passau.de>" maintainer2="Christia
 ARG JAVA_VERSION
 ARG JDK_DOWNLOAD_URL
 
-ARG MAVEN_VERSION=3.9.1
+ARG MAVEN_VERSION
 ARG MAVEN_BASE_URL=https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 ENV JAVA_HOME /usr/local/java/jdk-$JAVA_VERSION
@@ -17,8 +17,8 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive TZ=Europe/Berlin apt-get install --no-install-recommends -y ca-certificates p11-kit wget curl procps git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    && wget -O openjdk.tar.gz "$JDK_DOWNLOAD_URL" \
-    && wget -O apache-maven.tar.gz ${MAVEN_BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+    && wget -q -O openjdk.tar.gz "$JDK_DOWNLOAD_URL" \
+    && wget -q -O apache-maven.tar.gz "${MAVEN_BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
     # java
     && mkdir -p "$JAVA_HOME" \
     && tar --extract \
