@@ -1,0 +1,33 @@
+---
+name: Build Container Images
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-base:
+    uses: ./.github/workflows/container-images.yml
+    with:
+      image_name: base
+      subdir: base
+      build_args: |-
+        MAVEN_VERSION=3.9.2
+  build-dejagnu:
+    needs:
+      - build-base
+    uses: ./.github/workflows/container-images.yml
+    with:
+      image_name: dejagnu
+      subdir: dejagnu
+      build_args: ""
+  build-java:
+    needs:
+      - build-base
+    uses: ./.github/workflows/container-images.yml
+    with:
+      image_name: java
+      subdir: java
+      build_args: ""
