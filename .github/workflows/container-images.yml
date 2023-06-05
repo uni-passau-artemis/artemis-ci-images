@@ -27,7 +27,7 @@ jobs:
     strategy:
       matrix:
         pipeline_helper: ["v1.1.3"]
-        java_major_version: [17, 18, 19, 20]
+        java_major_version: [17, 19, 20]
         include:
           - java_major_version: 17
             java_version: 17.0.7
