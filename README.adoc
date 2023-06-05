@@ -1,3 +1,52 @@
-= Artemis Docker Images
+= Artemis CI Images
+:icons: font
+:lang: en
 
-ToDo
+:url-artemis: https://github.com/ls1intum/Artemis
+:url-dejagnu: https://www.gnu.org/software/dejagnu/
+:url-pipeline-helper: https://github.com/uni-passau-artemis/pipeline-helper
+
+
+[abstract]
+--
+Container images that we use in the continuous integration system that runs the automatic tests for student submissions in link:{url-artemis}[Artemis].
+--
+
+
+== Container images
+
+=== Base
+
+Plain base image that includes a JDK and Maven.
+To be used to build further additional images based on it.
+
+Also overrides the `whoami` command to make sure a username is known for arbitrary user IDs since some tools seem to require that.
+
+
+=== Dejagnu
+
+In addition to the `base` image contents, includes the link:{url-dejagnu}[DejaGnu] test framework to run automatic tests against command line interfaces and our link:{url-pipeline-helper}[pipeline helper] program.
+
+
+=== Java
+
+Contains the same Java/Maven versions as `base`.
+Additionally, installs Python to enable running course/exercise-specific integration test style scripts within the container.
+
+Creates the two world-read/writeable directories
+
+* `/maven_cache/`
+* `/gradle_cache/`
+
+that can be used to cache dependencies between different submissions.
+
+
+== Java version policy
+
+Images are usually updated for the latest two Java major versions.
+If that does not include an LTS version, images for the last LTS version are built as well.
+
+
+== Licence
+
+Distributed under the MIT licence.
