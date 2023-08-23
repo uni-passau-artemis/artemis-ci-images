@@ -14,7 +14,7 @@ jobs:
       image_name: base
       subdir: base
       build_args: |-
-        MAVEN_VERSION=3.9.3
+        MAVEN_VERSION=3.9.4
   build-dejagnu:
     needs:
       - build-base
