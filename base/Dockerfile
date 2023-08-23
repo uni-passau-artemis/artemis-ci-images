@@ -5,7 +5,7 @@ ARG JAVA_VERSION
 ARG JDK_DOWNLOAD_URL
 
 ARG MAVEN_VERSION
-ARG MAVEN_BASE_URL=https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
+ARG MAVEN_URL=https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 
 ENV JAVA_HOME /usr/local/java/jdk-$JAVA_VERSION
 ENV PATH $JAVA_HOME/bin:$PATH
@@ -18,7 +18,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && wget -q -O openjdk.tar.gz "$JDK_DOWNLOAD_URL" \
-    && wget -q -O apache-maven.tar.gz "${MAVEN_BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
+    && wget -q -O apache-maven.tar.gz "${MAVEN_URL}" \
     # java
     && mkdir -p "$JAVA_HOME" \
     && tar --extract \
