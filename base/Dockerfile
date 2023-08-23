@@ -5,7 +5,7 @@ ARG JAVA_VERSION
 ARG JDK_DOWNLOAD_URL
 
 ARG MAVEN_VERSION
-ARG MAVEN_BASE_URL=https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries
+ARG MAVEN_BASE_URL=https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 
 ENV JAVA_HOME /usr/local/java/jdk-$JAVA_VERSION
 ENV PATH $JAVA_HOME/bin:$PATH
