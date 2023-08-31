@@ -26,7 +26,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        pipeline_helper: ["v1.1.4"]
+        pipeline_helper: ["v2.0.1"]
         java_major_version: [17, 19, 20, 21]
         include:
           - java_major_version: 17
@@ -73,7 +73,7 @@ jobs:
           containerfiles: ${{ inputs.subdir }}/Dockerfile
 
       - name: Push images
-        if: github.event_name != 'pull_request'
+        # if: github.event_name != 'pull_request'
         uses: redhat-actions/push-to-registry@v2
         with:
           image: ${{ steps.build_image.outputs.image }}

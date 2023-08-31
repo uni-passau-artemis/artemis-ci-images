@@ -11,7 +11,7 @@ jobs:
   build-base:
     uses: ./.github/workflows/container-images.yml
     with:
-      image_name: base
+      image_name: base-ph2
       subdir: base
       build_args: |-
         MAVEN_VERSION=3.9.4
@@ -20,7 +20,7 @@ jobs:
       - build-base
     uses: ./.github/workflows/container-images.yml
     with:
-      image_name: dejagnu
+      image_name: dejagnu-ph2
       subdir: dejagnu
       build_args: ""
   build-java:
@@ -28,6 +28,6 @@ jobs:
       - build-base
     uses: ./.github/workflows/container-images.yml
     with:
-      image_name: java
+      image_name: java-ph2
       subdir: java
       build_args: ""
