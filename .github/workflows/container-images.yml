@@ -13,6 +13,10 @@ on:
       image_name:
         required: true
         type: string
+      base_image:
+        required: false
+        default: "base"
+        type: string
 
 env:
   REGISTRY: ghcr.io/${{ github.repository_owner }}
@@ -67,7 +71,7 @@ jobs:
           build-args: |-
             JAVA_VERSION=${{ matrix.java_version }}
             JDK_DOWNLOAD_URL=${{ matrix.java_url }}
-            BASE_IMAGE=${{ env.REGISTRY }}/artemis-base:${{ matrix.java_version }}
+            BASE_IMAGE=${{ env.REGISTRY }}/artemis-${{ inputs.base_image }}:${{ matrix.java_version }}
             ${{ inputs.build_args }}
           context: ${{ inputs.subdir }}
           containerfiles: ${{ inputs.subdir }}/Dockerfile
