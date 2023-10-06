@@ -40,6 +40,11 @@ Creates the two world-read/writeable directories
 
 that can be used to cache dependencies between different submissions.
 
+=== Java-Firefox
+
+Contains the same software as `java`.
+Additionally, installs Firefox ESR to enable the execution of Selenium system tests for web applications.
+
 
 == Java version policy
 

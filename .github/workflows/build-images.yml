@@ -31,3 +31,11 @@ jobs:
       image_name: java
       subdir: java
       build_args: ""
+  build-java-firefox:
+    needs:
+      - build-java
+    uses: ./.github/workflows/container-images.yml
+    with:
+      image_name: java-firefox
+      subdir: java-firefox
+      build_args: ""
