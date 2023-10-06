@@ -39,3 +39,4 @@ jobs:
       image_name: java-firefox
       subdir: java-firefox
       build_args: ""
+      base_image: java
