@@ -30,7 +30,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        pipeline_helper: ["v2.0.1"]
+        pipeline_helper: ["v2.1.0"]
         java_major_version: [17, 20, 21]
         include:
           - java_major_version: 17
