@@ -12,7 +12,7 @@ COPY pipeline-helper /usr/bin/
 
 # we do not know as which user/groupid Jenkins runs the build
 # therefore, create a central cache accessible to everyone
-RUN mkdir -p /maven_cache/repository /secrets \
-    && chmod -R 0777 /maven_cache /secrets
+RUN mkdir -p /maven_cache/repository \
+    && chmod -R 0777 /maven_cache
 
 ENV MAVEN_OPTS="-Dmaven.repo.local=/maven_cache/repository"
