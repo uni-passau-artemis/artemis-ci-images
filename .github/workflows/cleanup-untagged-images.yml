@@ -9,8 +9,6 @@ on:
 jobs:
   delete-untagged-images:
     name: Delete Untagged Images
-    permissions:
-      packages: delete
     runs-on: ubuntu-latest
     strategy:
       matrix:
