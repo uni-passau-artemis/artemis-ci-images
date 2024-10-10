@@ -1,14 +1,14 @@
 FROM docker.io/library/maven:3-eclipse-temurin-17 AS perfumator-builder
 
-ARG PERFUMATOR_VERSION=0.3.0
-ENV PERFUMATOR_DOWNLOAD_URL=https://git.fim.uni-passau.de/silbereise/perfumator-java/-/archive/v${PERFUMATOR_VERSION}/perfumator-java-v${PERFUMATOR_VERSION}.zip
+ARG PERFUMATOR_VERSION=0.4.0
+ENV PERFUMATOR_DOWNLOAD_URL=https://github.com/se2p/perfumator/archive/refs/tags/v${PERFUMATOR_VERSION}.zip
 
 RUN : \
     && apt-get update \
     && apt-get install -y unzip \
     && wget -q -O perfumator.zip ${PERFUMATOR_DOWNLOAD_URL} \
     && unzip perfumator.zip \
-    && cd perfumator-java-v${PERFUMATOR_VERSION} \
+    && cd perfumator-${PERFUMATOR_VERSION} \
     && mvn -B -DskipTests package \
     && cp target/perfumator-java-${PERFUMATOR_VERSION}-jar-with-dependencies.jar /perfumator-java.jar \
     && :
