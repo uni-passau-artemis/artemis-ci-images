@@ -1,6 +1,6 @@
 FROM docker.io/library/maven:3-eclipse-temurin-17 AS perfumator-builder
 
-ARG PERFUMATOR_VERSION=0.4.0
+ARG PERFUMATOR_VERSION=0.4.1
 ENV PERFUMATOR_DOWNLOAD_URL=https://github.com/se2p/perfumator/archive/refs/tags/v${PERFUMATOR_VERSION}.zip
 
 RUN : \
