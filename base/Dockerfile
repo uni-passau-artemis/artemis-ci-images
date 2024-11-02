@@ -18,6 +18,8 @@ RUN : \
 FROM docker.io/library/debian:bookworm-slim
 LABEL maintainer1="Benedikt Fein <fein@fim.uni-passau.de>" maintainer2="Christian Bachmaier <bachmaier@fim.uni-passau.de>"
 
+ARG TARGETARCH
+
 ARG JAVA_VERSION
 ARG JDK_DOWNLOAD_URL
 
@@ -34,6 +36,7 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive TZ=Europe/Berlin apt-get install --no-install-recommends -y ca-certificates p11-kit wget curl procps git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
+    && if [ "$TARGETARCH" = "arm64" ]; then echo "Using arm64 JDK"; JDK_DOWNLOAD_URL="$(echo "$JDK_DOWNLOAD_URL" | sed 's#x64#aarch64#')"; fi \
     && wget -q -O openjdk.tar.gz "$JDK_DOWNLOAD_URL" \
     && wget -q -O apache-maven.tar.gz "${MAVEN_URL}" \
     # java

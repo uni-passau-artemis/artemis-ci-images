@@ -13,8 +13,6 @@ jobs:
     with:
       image_name: base
       subdir: base
-      build_args: |-
-        MAVEN_VERSION=3.9.9
   build-dejagnu:
     needs:
       - build-base
@@ -22,7 +20,6 @@ jobs:
     with:
       image_name: dejagnu
       subdir: dejagnu
-      build_args: ""
   build-java:
     needs:
       - build-base
@@ -30,7 +27,6 @@ jobs:
     with:
       image_name: java
       subdir: java
-      build_args: ""
   build-java-firefox:
     needs:
       - build-java
@@ -38,5 +34,4 @@ jobs:
     with:
       image_name: java-firefox
       subdir: java-firefox
-      build_args: ""
       base_image: java
