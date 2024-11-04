@@ -1,7 +1,5 @@
 ARG BASE_IMAGE
-ARG TARGETPLATFORM
-
-FROM --platform=$TARGETPLATFORM $BASE_IMAGE
+FROM $BASE_IMAGE
 
 LABEL maintainer1="Benedikt Fein <fein@fim.uni-passau.de>"
 
