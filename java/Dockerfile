@@ -1,5 +1,8 @@
 ARG BASE_IMAGE
-FROM --platform=linux/amd64 $BASE_IMAGE
+ARG TARGETPLATFORM
+
+FROM --platform=$TARGETPLATFORM $BASE_IMAGE
+
 LABEL maintainer1="Benedikt Fein <fein@fim.uni-passau.de>"
 
 ENV MAVEN_OPTS="-Dmaven.repo.local=/maven_cache/repository"
