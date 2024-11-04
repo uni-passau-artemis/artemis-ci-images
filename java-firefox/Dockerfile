@@ -1,7 +1,6 @@
 ARG BASE_IMAGE
-ARG TARGETPLATFORM
+FROM $BASE_IMAGE
 
-FROM --platform=$TARGETPLATFORM $BASE_IMAGE
 LABEL maintainer1="Stephan Lukasczyk <stephan@pynguin.eu>"
 LABEL maintainer2="Benedikt Fein <fein@fim.uni-passau.de>"
 
