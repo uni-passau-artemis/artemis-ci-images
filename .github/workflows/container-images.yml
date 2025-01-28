@@ -88,3 +88,4 @@ jobs:
           context: ${{ inputs.subdir }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
+          provenance: false
