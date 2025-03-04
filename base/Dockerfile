@@ -1,20 +1,3 @@
-FROM docker.io/library/maven:3-eclipse-temurin-17 AS perfumator-builder
-
-ARG PERFUMATOR_VERSION=0.4.1
-ENV PERFUMATOR_DOWNLOAD_URL=https://github.com/se2p/perfumator/archive/refs/tags/v${PERFUMATOR_VERSION}.zip
-
-RUN : \
-    && apt-get update \
-    && apt-get install -y unzip \
-    && wget -q -O perfumator.zip ${PERFUMATOR_DOWNLOAD_URL} \
-    && unzip perfumator.zip \
-    && cd perfumator-${PERFUMATOR_VERSION} \
-    && mvn -B -DskipTests package \
-    && cp target/perfumator-java-${PERFUMATOR_VERSION}-jar-with-dependencies.jar /perfumator-java.jar \
-    && :
-
-################################################################################
-
 FROM docker.io/library/debian:bookworm-slim
 LABEL maintainer1="Benedikt Fein <fein@fim.uni-passau.de>" maintainer2="Christian Bachmaier <bachmaier@fim.uni-passau.de>"
 
@@ -57,6 +40,3 @@ RUN apt-get update \
 # create an alias for whoami as we do not know the userid,
 # but some tools (dejagnu) needs to know the user name for whatever reason
 COPY whoami /usr/bin/whoami
-
-COPY perfumator-java /usr/bin/perfumator-java
-COPY --from=perfumator-builder /perfumator-java.jar /usr/local/share/perfumator-java.jar
