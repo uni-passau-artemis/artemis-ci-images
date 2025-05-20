@@ -30,7 +30,7 @@ jobs:
       id-token: write
     strategy:
       matrix:
-        pipeline_helper: ["v2.2.1"]
+        pipeline_helper: ["v2.3.0"]
         java_major_version: [17, 21, 23, 24]
         include:
           - java_major_version: 17
