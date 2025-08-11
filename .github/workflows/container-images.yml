@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         pipeline_helper: ["v2.3.0"]
-        java_major_version: [17, 21, 23, 24]
+        java_major_version: [17, 21, 23, 24, 25]
         include:
           - java_major_version: 17
             java_version: 17.0.16
@@ -45,6 +45,9 @@ jobs:
           - java_major_version: 24
             java_version: 24.0.2
             java_url: "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_linux-x64_bin.tar.gz"
+          - java_major_version: 25
+            java_version: 25.0.0
+            java_url: "https://download.java.net/java/GA/jdk25/bd75d5f9689641da8e1daabeccb5528b/35/GPL/openjdk-25_linux-x64_bin.tar.gz"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
