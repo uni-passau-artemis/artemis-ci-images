@@ -47,7 +47,7 @@ jobs:
             java_url: "https://download.java.net/java/early_access/jdk26/23/GPL/openjdk-26-ea+23_linux-x64_bin.tar.gz"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Fetch pipeline-helper
         run: |
