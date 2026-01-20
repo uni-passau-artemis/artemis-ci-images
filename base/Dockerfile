@@ -1,4 +1,4 @@
-FROM docker.io/library/debian:bookworm-slim
+FROM docker.io/library/debian:trixie-slim
 LABEL maintainer1="Benedikt Fein <fein@fim.uni-passau.de>" maintainer2="Christian Bachmaier <bachmaier@fim.uni-passau.de>"
 
 ARG TARGETARCH
