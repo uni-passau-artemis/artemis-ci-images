@@ -31,14 +31,11 @@ jobs:
     strategy:
       matrix:
         pipeline_helper: ["v2.3.0"]
-        java_major_version: [21, 24, 25, 26]
+        java_major_version: [21, 25, 26]
         include:
           - java_major_version: 21
             java_version: 21.0.10
             java_url: "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.10%2B7/OpenJDK21U-jdk_x64_linux_hotspot_21.0.10_7.tar.gz"
-          - java_major_version: 24
-            java_version: 24.0.2
-            java_url: "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_linux-x64_bin.tar.gz"
           - java_major_version: 25
             java_version: 25.0.2
             java_url: "https://download.java.net/java/GA/jdk25.0.2/b1e0dfa218384cb9959bdcb897162d4e/10/GPL/openjdk-25.0.2_linux-x64_bin.tar.gz"
