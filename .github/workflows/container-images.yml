@@ -81,7 +81,7 @@ jobs:
             BASE_IMAGE=${{ env.REGISTRY }}/artemis-${{ inputs.base_image }}:${{ matrix.java_version }}
             JAVA_VERSION=${{ matrix.java_version }}
             JDK_DOWNLOAD_URL=${{ matrix.java_url }}
-            MAVEN_VERSION=3.9.14
+            MAVEN_VERSION=3.9.15
           context: ${{ inputs.subdir }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
