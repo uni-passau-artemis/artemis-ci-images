@@ -41,7 +41,7 @@ jobs:
             java_url: "https://download.java.net/java/GA/jdk26.0.2.1/3b8e6c7ec6274148a7aa15e7e7dfb53c/1/GPL/openjdk-26.0.2.1_linux-x64_bin.tar.gz"
           - java_major_version: 27
             java_version: 27.0.1
-            java_url: "https://download.java.net/java/GA/jdk27.0.1.0.2/924dbdccfc234bb9b9355d7c6b66034b/1/GPL/openjdk-27.0.1.0.2_linux-x64_bin.tar.gz"
+            java_url: "https://download.java.net/java/GA/jdk27.0.1.1/c3a705caf5044be8aa0b09e62be69b20/4/GPL/openjdk-27.0.1.1_linux-x64_bin.tar.gz"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
