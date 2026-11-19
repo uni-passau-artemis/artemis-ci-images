@@ -35,7 +35,7 @@ jobs:
         include:
           - java_major_version: 25
             java_version: 25.0.5
-            java_url: "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.5%2B8/OpenJDK25U-jdk_x64_linux_hotspot_25.0.5_8.tar.gz"
+            java_url: "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.5.1%2B2/OpenJDK25U-jdk_x64_linux_hotspot_25.0.5.1_2.tar.gz"
           - java_major_version: 26
             java_version: 26.0.2
             java_url: "https://download.java.net/java/GA/jdk26.0.2.1/3b8e6c7ec6274148a7aa15e7e7dfb53c/1/GPL/openjdk-26.0.2.1_linux-x64_bin.tar.gz"
